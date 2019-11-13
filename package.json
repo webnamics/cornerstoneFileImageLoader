@@ -1,0 +1,26 @@
+{
+  "name": "cornerstone-file-image-loader",
+  "version": "0.1.0",
+  "description": "A Cornerstone Image Loader for images (PNG, JPG) using the HTML5 File API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webnamics/cornerstoneFileImageLoader.git"
+  },
+  "keywords": [
+    "medical",
+    "imaging",
+    "JPEG",
+    "PNG",
+    "cornerstone"  
+  ],
+  "author": "Luigi Orso",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webnamics/cornerstoneFileImageLoader/issues"
+  },
+  "homepage": "https://github.com/webnamics/cornerstoneFileImageLoader#readme"
+}
