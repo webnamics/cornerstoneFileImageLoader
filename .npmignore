@@ -1,8 +1,13 @@
+## All Non-Dist Directories
+config/
+examples/
+src/
+test/
 
-.nyc_output/
-
-coverage/
-
-node_modules/
-
-.vscode/
+## Root Files
+.babelrc
+.eslintignore
+.gitignore
+.jsdocrc
+.travis.yml
+karma.conf.js
