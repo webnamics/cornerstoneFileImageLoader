@@ -4,7 +4,7 @@ import fileManager from './fileManager.js';
 import { loadImage, configure } from './loadImage.js';
 import { external } from './externalModules.js';
 
-const cornerstoneWebImageLoader = {
+const cornerstoneFileImageLoader = {
   arrayBufferToImage,
   createImage,
   loadImage,
@@ -22,4 +22,4 @@ export {
   fileManager
 };
 
-export default cornerstoneWebImageLoader;
+export default cornerstoneFileImageLoader;
