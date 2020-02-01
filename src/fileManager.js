@@ -6,6 +6,12 @@ function add (file) {
   return `imagefile:${fileIndex - 1}`;
 }
 
+function addBuffer (file) {
+  const fileIndex = files.push(file);
+
+  return `imagebuffer:${fileIndex - 1}`;
+}
+
 function get (index) {
   return files[index];
 }
@@ -20,6 +26,7 @@ function purge () {
 
 export default {
   add,
+  addBuffer,
   get,
   remove,
   purge

@@ -1,9 +1,9 @@
 cornerstone File Image Loader
 =============================
 
-A [cornerstone](https://github.com/cornerstonejs/cornerstone) Image Loader for images (JPG, PNG) using the HTML5 File API.
+A [cornerstone](https://github.com/cornerstonejs/cornerstone) Image Loader for images (JPG, PNG) using the HTML5 File API or  from ArrayBuffer.
 
-Using the File API presents in HTML5 is possible open local image such as JPEG and PNG in Cornerstone library.
+Using the File API presents in HTML5 or ArrayBuffer data is possible open local image such as JPEG and PNG in Cornerstone library.
 
 Live Examples
 ---------------
@@ -33,6 +33,16 @@ To display an image, first add a HTML5 file object to cornerstoneFileImageLoader
 
 ````javascript
 const imageId = cornerstoneFileImageLoader.fileManager.add(file);
+cornerstone.loadImage(imageId).then(function(image) {
+	cornerstone.displayImage(element, image);
+	...
+}
+````
+
+Or if previously the data has loaded in a ArrayBuffer:
+
+````javascript
+const imageId = cornerstoneFileImageLoader.fileManager.addBuffer(data);
 cornerstone.loadImage(imageId).then(function(image) {
 	cornerstone.displayImage(element, image);
 	...

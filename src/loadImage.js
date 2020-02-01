@@ -14,31 +14,51 @@ let options = {
 
 // Loads an image given a url to an image
 export function loadImage (imageId) {
-  const cornerstone = external.cornerstone;
   const parsedImageId = parseImageId(imageId);
   const fileIndex = parseInt(parsedImageId.url, 10);
   const file = fileManager.get(fileIndex);
 
-  const promise = new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
+  if (parsedImageId.scheme === 'imagefile') {
 
-    fileReader.onload = (e) => {
-      const imageAsArrayBuffer = e.target.result;
-	  const imagePromise = arrayBufferToImage(imageAsArrayBuffer);
-	  imagePromise.then((image) => {
-        const imageObject = createImage(image, imageId);
-        resolve(imageObject);
-      }, reject);
-    };
+    const promise = new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.onload = (e) => {
+        const imageAsArrayBuffer = e.target.result;
+        const imagePromise = arrayBufferToImage(imageAsArrayBuffer);
+        imagePromise.then((image) => {
+          const imageObject = createImage(image, imageId);
+          resolve(imageObject);
+        }, reject);
+      };
 
-    fileReader.onerror = reject;
+      fileReader.onerror = reject;
 
-    fileReader.readAsArrayBuffer(file);
-  });
+      fileReader.readAsArrayBuffer(file);
+    });
 
-  return {
-	promise
-  };
+    return {
+      promise
+    };   
+
+  } else if (parsedImageId.scheme === 'imagebuffer') {
+
+    const promise = new Promise((resolve, reject) => {
+      if (file !== null && file !== undefined) {
+        const imageAsArrayBuffer = file;
+        const imagePromise = arrayBufferToImage(imageAsArrayBuffer);
+        imagePromise.then((image) => {
+          const imageObject = createImage(image, imageId);
+          resolve(imageObject);
+        }, reject);
+      } else {
+        reject('buffer is null or undefined');
+      }
+    });
+
+    return {
+      promise
+    };   
+  }
 }
 
 export function configure (opts) {
