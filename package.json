@@ -1,7 +1,7 @@
 {
   "name": "cornerstone-file-image-loader",
-  "version": "0.2.0",
-  "description": "A Cornerstone Image Loader for images (PNG, JPG) using the HTML5 File API",
+  "version": "0.2.1",
+  "description": "A Cornerstone Image Loader for images (PNG, JPG) using the HTML5 File API or from ArrayBuffer",
   "keywords": [
     "medical",
     "imaging",
@@ -78,5 +78,7 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "serialize-javascript": "^2.1.2"
+  }
 }
