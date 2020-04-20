@@ -1,6 +1,6 @@
 {
   "name": "cornerstone-file-image-loader",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A Cornerstone Image Loader for images (PNG, JPG) using the HTML5 File API or from ArrayBuffer",
   "keywords": [
     "medical",

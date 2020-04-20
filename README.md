@@ -1,9 +1,11 @@
 cornerstone File Image Loader
 =============================
 
-A [cornerstone](https://github.com/cornerstonejs/cornerstone) Image Loader for images (JPG, PNG) using the HTML5 File API or  from ArrayBuffer.
+A [cornerstone](https://github.com/cornerstonejs/cornerstone) Image Loader for images (JPG, PNG) using the HTML5 File API or from ArrayBuffer.  
 
 Using the File API presents in HTML5 or ArrayBuffer data is possible open local image such as JPEG and PNG in Cornerstone library.
+
+It's also possible to build a new image from a previously loaded Cornerstone image with a custom pixel data.
 
 Live Examples
 ---------------
@@ -39,10 +41,26 @@ cornerstone.loadImage(imageId).then(function(image) {
 }
 ````
 
-Or if previously the data has loaded in a ArrayBuffer:
+Or if previously the JPG or PNG data has loaded in a ArrayBuffer:
 
 ````javascript
 const imageId = cornerstoneFileImageLoader.fileManager.addBuffer(data);
+cornerstone.loadImage(imageId).then(function(image) {
+	cornerstone.displayImage(element, image);
+	...
+}
+````
+
+To build a new image from loaded Cornerstone Image and a custom pixel data:
+
+````javascript
+const customObj = {
+	rows: rows,				// rows in PixelData
+	columns: columns, 		// columns in pixelData
+	pixelData: pixelData,	// custom pixel data
+	image: loadedImage,		// loaded Cornerstone Image
+}
+const imageId = cornerstoneFileImageLoader.fileManager.addCustom(customObj);
 cornerstone.loadImage(imageId).then(function(image) {
 	cornerstone.displayImage(element, image);
 	...
